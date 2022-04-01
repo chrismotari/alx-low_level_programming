@@ -1,8 +1,4 @@
-# 0x09-static_libraries
+# Static libraries
+We learn how to create a static library, index it, and use it.
 
-Project using standard libraries  using the shell
-
-  - holberton.h
-  - libholberton.a
-  - create_static_lib.sh
-
+main.h contains all prototypes to the functions in the library
