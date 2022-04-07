@@ -1,62 +1,43 @@
 #include "main.h"
-
-int find_strlen(char *s);
-int check_palindrome(char *s, int len, int index);
-int is_palindrome(char *s);
-
 /**
- * find_strlen - Returns the length of a string.
- * @s: The string to be measured.
- *
- * Return: The length of the string.
- */
-int find_strlen(char *s)
+ * _strlen_recursion - finds the length of a string
+ * @s: pointer to string
+ * Return: length of string
+ **/
+int _strlen_recursion(char *s)
 {
-	int len = 0;
-
-	if (*(s + len))
-	{
-		len++;
-		len += find_strlen(s + len);
-	}
-
-	return (len);
+	if (*s == '\0')
+		return (0);
+	return (_strlen_recursion(s + 1) + 1);
 }
-
 /**
- * check_palindrome - Checks if a string is a palindrome.
- * @s: The string to be checked.
- * @len: The length of s.
- * @index: The index of the string to be checked.
- *
- * Return: If the string is a palindrome - 1.
- *         If the string is not a palindrome - 0.
- */
-int check_palindrome(char *s, int len, int index)
+ * is_palind_recursive - checks if two chars of a string are equal
+ * @s: string to be checked
+ * @i: first index
+ * @j: last index
+ * Return: 1 if equal, else 0
+ **/
+int is_palind_recursive(char *s, int i, int j)
 {
-	if (s[index] == s[len / 2])
+	if (i == j)
 		return (1);
-
-	if (s[index] == s[len - index - 1])
-		return (check_palindrome(s, len, index + 1));
-
-	return (0);
+	if (i == j - 1)
+		return (s[i] == s[j]);
+	if (s[i] != s[j])
+		return (0);
+	return (is_palind_recursive(s, i + 1, j - 1));
 }
-
 /**
- * is_palindrome - Checks if a string is a palindrome.
- * @s: The string to be checked.
- *
- * Return: If the string is a palindrome - 1.
- *         If the string is not a palindrome - 0.
- */
+ * is_palindrome - checks if a string is a palindrome
+ * @s: pointer to string
+ * Return: 1 if string is palindrome  else 0
+ **/
 int is_palindrome(char *s)
 {
-	int index = 0;
-	int len = find_strlen(s);
+	int len;
 
-	if (!(*s))
-		return (1);
-
-	return (check_palindrome(s, len, index));
+	len = _strlen_recursion(s);
+	if (len == 0 || *s != s[len - 1])
+		return (0);
+	return (is_palind_recursive(s, 0, len - 1));
 }

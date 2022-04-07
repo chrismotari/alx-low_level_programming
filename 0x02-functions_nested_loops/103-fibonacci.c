@@ -1,10 +1,12 @@
+/*betty*/
+
 #include <stdio.h>
 
 /**
- * main - finds and prints the sum of the even-valued terms
- * followed by a new line
- * Return: Always 0 (Success)
- */
+ *  * main - finds and prints the sum of the even-valued terms
+ *   * followed by a new line
+ *    * Return: Always 0 (Success)
+*/
 int main(void)
 {
 	int i;
@@ -24,7 +26,6 @@ int main(void)
 		j = k;
 		k = next;
 	}
-
 	printf("%lu\n", sum);
 
 	return (0);
