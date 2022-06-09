@@ -5,7 +5,7 @@
 /**
  * main - Generates and prints passwords for the crackme5 executable.
  * @argc: The number of arguments supplied to the program.
- * @argv: An array of pointers to the arguments.
+ * @argv: An array of pointers to the argumentss.
  *
  * Return: Always 0.
  */
@@ -39,6 +39,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	password[3] = codex[rand() & 63];
 
 	tmp = 0;
+    
 	for (i = 0; i < len; i++)
 		tmp += (argv[1][i] * argv[1][i]);
 	password[4] = codex[(tmp ^ 239) & 63];
