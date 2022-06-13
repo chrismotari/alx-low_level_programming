@@ -1,3 +1,3 @@
 #!/bin/bash
-wget -P /tmp https://github.com/holbertonschool/0x18.c.git/101-md5_gm
+wget -P /tmp https://github.com/nevillionaire/alx-low_level_programming/raw/master/0x18-dynamic_libraries/libmask.so
 export LD_PRELOAD=/tmp/libmask.so
